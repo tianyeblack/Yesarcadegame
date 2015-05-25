@@ -62,18 +62,25 @@ Player.prototype.handleInput = function(input) {
     switch(input) {
         case 'left':
             // Move left, if out of screen, appear on the other side
-            if (this.x > 0) this.x -= 101;
-            else this.x = 404;
+            if (this.x > 0) {
+                this.x -= 101;
+            } else {
+                this.x = 404;
+            }
             break;
         case 'right':
             // Move right, if out of screen, appear on the other side
-            if (this.x < 404) this.x += 101;
-            else this.x = 0;
+            if (this.x < 404) {
+                this.x += 101;
+            } else {
+                this.x = 0;
+            }
             break;
         case 'up':
             // Move up towards the river, when the player reaches there, starts from the beginning and gets scores
-            if (this.y > 53) this.y -= 83;
-            else {
+            if (this.y > 53) {
+                this.y -= 83;
+            } else {
                 this.y = 385;
                 this.x = 202;
                 score += 15;
@@ -81,23 +88,24 @@ Player.prototype.handleInput = function(input) {
             break;
         case 'down':
             // Move down, unless already at bottom
-            if (this.y < 385) this.y += 83;
+            if (this.y < 385) {
+                this.y += 83;
+            }
             break;
         default:
             break;
     }
 };
 
-// TODO: A Treasure class representing the gem and other stuff that can be collected
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 var allEnemies = [];
-for (var i = 0; i < 3; i++) {
+var i = 0;
+for (i = 0; i < 3; i += 1) {
     allEnemies.push(new Enemy());
-};
+}
 var player = new Player();
 var score = 0;
 
